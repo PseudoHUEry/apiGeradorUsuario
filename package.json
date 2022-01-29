@@ -1,0 +1,24 @@
+{
+  "name": "apigeradorusuario",
+  "version": "0.1.0",
+  "description": "Gerador de usuários para testes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PseudoHUEry/apiGeradorUsuario.git"
+  },
+  "keywords": [
+    "gerador",
+    "api",
+    "usuarios"
+  ],
+  "author": "PseudoHUEry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PseudoHUEry/apiGeradorUsuario/issues"
+  },
+  "homepage": "https://github.com/PseudoHUEry/apiGeradorUsuario#readme"
+}
