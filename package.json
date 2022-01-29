@@ -24,6 +24,7 @@
   "dependencies": {
     "@hapi/hapi": "^20.2.1",
     "dotenv": "^14.3.2",
+    "mongoose": "^6.1.8",
     "nodemon": "^2.0.15"
   }
 }
