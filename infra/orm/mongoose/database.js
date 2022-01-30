@@ -1,7 +1,12 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"),
+  environ = require("../../env/environ");
 
 module.exports = async () => {
- await mongoose.connect(process.env.LINK_DATABASE);
- console.log('Banco de dados conectado.')
+  if (environ.nodeEnv == "staging") {
+    await mongoose.connect(environ.linkDb);
+  }
+  if (environ.nodeEnv == "development") {
+    await mongoose.connect("mongodb://db/dev");
+  }
+  console.log("Banco de dados conectado.");
 };
-
