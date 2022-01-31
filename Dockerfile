@@ -5,6 +5,6 @@ COPY . .
 RUN npm config set registry="http://registry.npmjs.org/"
 RUN npm install --production
 
-COPY . ./app
+COPY . ./USR/APP
 EXPOSE 3000
 CMD [ "npm", "start"  ]
