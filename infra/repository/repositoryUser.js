@@ -5,10 +5,10 @@ module.exports = {
     return await User.create(object);
   },
   createManyUser: async (Array) => {
-    return await User.insertMany(Array)
+    return await User.insertMany(Array, {rawResult: true})
   },
-  findOneUser: async (id) => {
-    return await User.findById(id);
+  findOneUser: async () => {
+    return await User.findOne({});
   },
   findAllUsers: async () => {
     return await User.find();

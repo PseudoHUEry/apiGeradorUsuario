@@ -1,18 +1,18 @@
 const environ = require("../../infra/env/environ"),
   repositoryUser = require("../../infra/repository/repositoryUser"),
   { default: axios } = require("axios"),
-  moment = require("moment");
+  modelUser = require("../../domain/User");
 
 module.exports = async ({ payload }) => {
-  let { qtn } = payload,
-    obj = {},
-    { data } = await axios("https://geradorbrasileiro.com/api/faker/pessoa");
-  data = data.values[0];
-  obj.nome = data.nome.split(" ")[0];
-  obj.nomeMeio = data.nome.split(" ")[1];
-  obj.sobrenome = data.nome.split(" ")[2];
-  obj.cpf = data.cpf.replace(/[^0-9]/g, "");
-  obj.dataNascimento = moment(data.dataNascimento, "DD-MM-YYYY");
-  
-  return await repositoryUser.createUser(obj);;
+  let arr = [],
+    { qnt } = JSON.parse(payload);
+  evaluate = qnt ?? 1;
+  for (let i = 0; i <= evaluate; i++) {
+    let link = modelUser(
+      await axios("https://geradorbrasileiro.com/api/faker/pessoa")
+    );
+    arr.push(link);
+  }
+  let intacedLinks = await repositoryUser.createManyUser(arr);
+  return intacedLinks.insertedIds;
 };

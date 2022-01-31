@@ -1,4 +1,5 @@
-const geradorDePessoas = require('../../application/use_case/geradorDePessoa')
+const geradorDePessoas = require("../../application/use_case/geradorDePessoa");
+const repositoryUser = require("../../infra/repository/repositoryUser");
 module.exports = {
   index: (request) => {
     return "health!";
@@ -6,8 +7,11 @@ module.exports = {
   create: async (request) => {
     return await geradorDePessoas(request);
   },
-  update: (request) => {
-    return "health!";
+  getOne: async () => {
+    return await repositoryUser.findOneUser()
+  },
+  getAll: async() => {
+    return await repositoryUser.findAllUsers()
   },
   delete: (request) => {
     return "health!";
