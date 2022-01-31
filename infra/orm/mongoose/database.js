@@ -6,7 +6,7 @@ module.exports = async () => {
     await mongoose.connect(environ.linkDb);
   }
   if (environ.nodeEnv == "development") {
-    await mongoose.connect("mongodb://db/dev");
+    await mongoose.connect("mongodb://db/dev-geradorUsers");
   }
   console.log("Banco de dados conectado.");
 };
